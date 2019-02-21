@@ -11,7 +11,7 @@ RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 
 COPY myapp myapp
-COPY runserver.py ./
+COPY run_debug_server.py ./
 
 RUN chown -R flask:flask ./
 USER flask
