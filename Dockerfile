@@ -10,11 +10,10 @@ RUN python -m venv venv
 RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 
-COPY myapp myapp
-COPY run_debug_server.py ./
+COPY restapi restapi
 
 RUN chown -R flask:flask ./
 USER flask
 
 EXPOSE 5000
-ENTRYPOINT ["./venv/bin/gunicorn", "-c", "gunicorn_config.py", "myapp:app"]
+ENTRYPOINT ["./venv/bin/gunicorn", "-c", "gunicorn_config.py", "restapi:app"]

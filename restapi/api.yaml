@@ -1,0 +1,93 @@
+openapi: "3.0.2"
+
+info:
+  version: 1.0.0
+  title: API for calling ML models
+  description: This API contains endpoints for sending inputs to and receiving outputs from ML models
+  contact:
+    name: Responsible Person
+    email: someone@some.where.com
+
+servers:
+  - url: http://localhost:5000/
+    description: "Local server for debugging"
+  - url: http://some.where.com/
+    description: "Production server"
+
+tags:
+  - name: Models
+    description: Models in production
+  - name: Testing
+    description: Endpoints for testing purposes
+
+components:
+  schemas:
+    integer:
+      type: integer
+      format: int64
+      example: 2
+    float:
+      type: number
+      format: float
+      example: 3.14159
+    probability:
+      type: number
+      format: float
+      minimum: 0
+      maximum: 1
+      example: .48123
+
+paths:
+  /dummy_model/predict_proba:
+    parameters:
+     - name: model_version
+       description: Model version
+       in: query
+       required: true
+       schema:
+         type: integer
+         enum: [1]
+
+    get:
+      tags:
+        - Testing
+      operationId: restapi.endpoints.dummy_model
+      summary: Dummy model class probabilty
+      description: |
+        # About the model
+        Describe the model.
+
+        # Training data
+        What data was used in training?
+
+        # Inputs
+        What are the expected inputs?
+
+        # Output
+        What are the generates outputs?
+
+        # Performance
+        How good is the model?
+
+        ![Confusion matrix](/static/confusion_matrix.png)
+
+      parameters:
+       - name: x1
+         description: Value of x1, an integer
+         in: query
+         required: true
+         schema:
+           $ref: '#/components/schemas/integer'
+       - name: x2
+         description: Value of x2, a float
+         in: query
+         required: true
+         schema:
+           $ref: '#/components/schemas/float'
+      responses:
+        '200':
+          description: Probability of being in class
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/probability'
