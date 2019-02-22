@@ -2,11 +2,8 @@
 A template for starting new Flask projects
 
 # Docker usage
-## Create docker image
-```docker build -t restapi .```
-
-## Run docker container
-```docker run -p 5000:5000 --name restapi --rm -d restapi```
+- Build docker image: ```docker build -t restapi .```
+- Run docker container from image: ```docker run -p 5000:5000 --name restapi --rm -d restapi```
 
 # Deploy to Amazon Elastic Beanstalk
 - Install eb CLI: ```pip install awsebcli```
