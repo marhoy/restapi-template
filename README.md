@@ -8,7 +8,7 @@ A template for starting new Flask projects
 # Deploy to Amazon Elastic Beanstalk
 - Install eb CLI: `pip install awsebcli`
 - Create eb application: `eb init -p python-3.6 restapi`. You will be asked to select a region.
-- Create environment and deploy to AWS: `eb create -i t3.nano restapi-env`
+- Create environment and deploy to AWS: `eb create -i t3.nano restapi-env`. See [EB pricing](https://aws.amazon.com/elasticbeanstalk/pricing/) for other instance options.
 - To open your application: `eb open`
 - Log into the [AWS console](https://console.aws.amazon.com/console/home) to view your server
 - Update server if you change something: `eb deploy` 
@@ -17,7 +17,7 @@ A template for starting new Flask projects
 # Deploy to Azure
 - Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) for your OS
 - Authenticate: ```az login```
-- Create the WebApp, using Python-3.6 and an already existing resource group and service plan. The `appname` needs to be _globally_ unique, so add some random characters:
+- Create the WebApp, using Python-3.6 and an already existing "Resource Group" and "App Service Plan". The `appname` needs to be _globally_ unique, so add some random characters:
 ```bash
 az webapp create --name <appname> --runtime "PYTHON|3.6" --resource-group aic-webapp-testing --plan WebAppTestingPlan
 ```
