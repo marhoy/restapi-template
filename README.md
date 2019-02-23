@@ -29,5 +29,6 @@ git remote add azure <git_clone_url>
 - Push your code to the `master` branch on Azure: `git push azure master`. The first time, you will be prompted for a username/password. They can be found under "Deployment Credentials" in the "Deployment center".
 - If all goes well, your application is now available at http://<app_name>.azurewebsites.net/
 - To update the server, just push again.
-- To terminate and remove the server: ```az group delete --name <resource-group>``` where resource-group is the name of the resource group containing your web app.
+- To delete your webapp: `az webapp delete --name <appname> --resource-group aic-webapp-testing`
+
  
