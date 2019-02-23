@@ -16,4 +16,4 @@ RUN chown -R flask:flask ./
 USER flask
 
 EXPOSE 5000
-ENTRYPOINT ["./venv/bin/gunicorn", "-b", "0.0.0.0:5000", "-w", "2", "--access-logfile", "-", "--error-logfile", "-" , "restapi:app"]
+ENTRYPOINT ["./venv/bin/gunicorn", "-b", "0.0.0.0:5000", "-w", "2", "--access-logfile", "-", "--error-logfile", "-" , "restapi:create_app()"]
