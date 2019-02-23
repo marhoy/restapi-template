@@ -23,5 +23,5 @@ A template for starting new Flask projects
   - The ```<pricing_tier>``` can be e.g. B1 (Basic Small) or S1 (Standard Small) if you need automatic scaling. See [service plan details](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) for more details.
 - Your application is now available at http://<app_name>.azurewebsites.net/
 - Log into the [Azure Portal](https://portal.azure.com/) to administrate the Web App
-- Redeploy if you changed anything: ```az webapp up -n <app_name>```
+- Redeploy if you changed anything: ```az webapp up -n <app_name> -l westeurope```
 - To terminate and remove the server: ```az group delete --name <resource-group>``` where resource-group is the name of the resource group containing your web app.
