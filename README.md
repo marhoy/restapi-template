@@ -17,12 +17,17 @@ A template for starting new Flask projects
 # Deploy to Azure
 - Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) for your OS
 - Authenticate: ```az login```
-- Create the WebApp, using Python-3.6 and an already existing resource group and service plan. The app_name needs to be _globally_ unique, so add some random characters:
+- Create the WebApp, using Python-3.6 and an already existing resource group and service plan. The `appname` needs to be _globally_ unique, so add some random characters:
 ```bash
 az webapp create --name <appname> --runtime "PYTHON|3.6" --resource-group aic-webapp-testing --plan WebAppTestingPlan
 ```
-- Your application is now available at http://<app_name>.azurewebsites.net/
-- Log into the [Azure Portal](https://portal.azure.com/) to administrate the Web App
-- Redeploy if you changed anything: ```az webapp up -n <app_name> -l westeurope```
+- Log into the [Azure Portal](https://portal.azure.com/), and find your newly created webapp. Click the "Deployment center" and copy the "git clone url". Add the URL as a remote git repository:
+```bash
+git remote add azure <git_clone_url>
+```
+- Make sure you have commited all your code.
+- Push your code to the `master` branch on Azure: `git push azure master`. You will be prompted for a username/password. They can be found under "Deployment Credentials" in the "Deployment center".
+- If all goes well, your application is now available at http://<app_name>.azurewebsites.net/
+- To update the server, just push again.
 - To terminate and remove the server: ```az group delete --name <resource-group>``` where resource-group is the name of the resource group containing your web app.
  
