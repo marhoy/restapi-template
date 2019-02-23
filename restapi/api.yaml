@@ -8,12 +8,6 @@ info:
     name: Responsible Person
     email: someone@some.where.com
 
-servers:
-  - url: http://localhost:5000/
-    description: "Local server for debugging"
-  - url: http://restapi-env.gxvzd8nia8.eu-north-1.elasticbeanstalk.com/
-    description: "AWS EB server"
-
 tags:
   - name: Models
     description: Models in production
