@@ -7,6 +7,7 @@ In order to run the application locally for development and debugging:
 python3.6 -m venv venv
 . venv/bin/activate
 pip install -r requirements.txt
+python application.py
 ```
 
 To run tests and check that the code is working correctly:
