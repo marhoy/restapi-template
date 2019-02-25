@@ -33,10 +33,6 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
-- Map port 80 to whatever port is exposed by your container (e.g. 5000):
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=5000
-```
 
 ## As a standalone Web App
 - Log into the [Azure Portal](https://portal.azure.com/) and create/find a dedicated resource group. Add an appropriate "App Service Plan" to the resource group. For testing, use the B1 plan.
