@@ -1,3 +1,7 @@
+#
+# When making changes to this file, evaluate the contents at: https://editor.swagger.io/
+#
+
 openapi: "3.0.2"
 
 info:
