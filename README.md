@@ -42,12 +42,13 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 ```bash
 az webapp create --name <appname> --runtime "PYTHON|3.6" --resource-group aic-webapp-testing --plan WebAppTestingPlan
 ```
-- Log into the [Azure Portal](https://portal.azure.com/), and find your newly created webapp. Click the "Deployment center" and copy the "git clone url". Add the URL as a remote git repository:
+- Log into the [Azure Portal](https://portal.azure.com/), and find your newly created webapp. Click the "Deployment center" and copy the "git clone url". Add the URL as a remote git repository and push your code to the `master` branch on Azure:
+
 ```bash
 git remote add azure <git_clone_url>
+git push azure master
 ```
-- Make sure you have commited all your changes.
-- Push your code to the `master` branch on Azure: `git push azure master`. The first time, you will be prompted for a username/password. They can be found under "Deployment Credentials" in the "Deployment center".
+- The first time, you will be prompted for a username/password. They can be found under "Deployment Credentials" in the "Deployment center".
 - If all goes well, your application is now available at http://<app_name>.azurewebsites.net/
 - To update the server, just push again.
 
