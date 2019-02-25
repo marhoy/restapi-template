@@ -12,7 +12,7 @@ python application.py
 
 To run tests and check that the code is working correctly:
 ```bash
-pip install -r requirements-develop
+pip install -r requirements-develop.txt
 tox
 ```
 # Docker usage
