@@ -1,6 +1,19 @@
 # restapi-template
 A template for starting new Flask projects
 
+# Development and Testing
+In order to run the application locally for development and debugging:
+```
+python3.6 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+```
+
+To run tests and check that the code is working correctly:
+```bash
+pip install -r requirements-develop
+tox
+```
 # Docker usage
 - Build docker image: `docker build -t restapi .`
 - Run docker container from image: `docker run -p 5000:5000 --name restapi --rm -d restapi`
