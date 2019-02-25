@@ -20,6 +20,25 @@ tox
 
 # Deploy to Azure
 - Log into the [Azure Portal](https://portal.azure.com/) and create/find a dedicated resource group. Add an appropriate "App Service Plan" to the resource group. For testing, use the B1 plan.
+- You could create a resource group an service plan as follows:
+```bash
+az group create --name myResourceGroup --location "North Europe"
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux 
+```
+
+## Using the Docker image
+- Build and push the docker image to a registry (e.g. hub.docker.com).
+- Create a webapp from the docker image:
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
+```
+- Map port 80 to whatever port is exposed by your container (e.g. 5000):
+```bash
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=5000
+```
+
+## As a standalone Web App
+- Log into the [Azure Portal](https://portal.azure.com/) and create/find a dedicated resource group. Add an appropriate "App Service Plan" to the resource group. For testing, use the B1 plan.
 - Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) for your OS
 - Authenticate: ```az login```
 - Create the WebApp, using Python-3.6 and an already existing "Resource Group" and "App Service Plan". The `appname` needs to be _globally_ unique, so add some random characters:
