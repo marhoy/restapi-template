@@ -40,7 +40,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 ## As a standalone Web App
 - Create the WebApp, using Python-3.6 and an already existing "Resource Group" and "App Service Plan". The `appname` needs to be _globally_ unique, so add some random characters:
 ```bash
-az webapp create --name <appname> --runtime "PYTHON|3.6" --resource-group aic-webapp-testing --plan WebAppTestingPlan
+az webapp create --name <appname> --runtime "PYTHON|3.6" --resource-group myResourceGroup --plan myAppServicePlan
 ```
 - Log into the [Azure Portal](https://portal.azure.com/), and find your newly created webapp. Click the "Deployment center" and copy the "git clone url". Add the URL as a remote git repository and push your code to the `master` branch on Azure:
 
