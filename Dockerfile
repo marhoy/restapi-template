@@ -5,7 +5,6 @@ RUN useradd flask
 WORKDIR /home/flask
 
 COPY requirements.txt requirements.txt
-COPY gunicorn_config.py gunicorn_config.py
 RUN python -m venv venv
 RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
